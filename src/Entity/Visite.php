@@ -21,6 +21,11 @@ class Visite
      * @ORM\Column(type="string", length=50)
      */
     private $ville;
+    
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $pays;
 
     /**
      * @ORM\Column(type="date", nullable=true)
@@ -61,6 +66,18 @@ class Visite
     {
         $this->ville = $ville;
 
+        return $this;
+    }
+    
+    public function getPays(): ?string
+    {
+        return $this->pays;
+    }
+    
+    public function setPays(string $pays): self
+    {
+        $this->pays = $pays;
+        
         return $this;
     }
 
