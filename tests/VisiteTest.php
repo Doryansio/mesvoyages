@@ -7,6 +7,7 @@
 
 namespace App\Tests;
 
+use App\Entity\Environnement;
 use App\Entity\Visite;
 use DateTime;
 use PHPUnit\Framework\TestCase;
@@ -23,5 +24,16 @@ class VisiteTest extends TestCase {
         $visite = new Visite();
         $visite->setDatecreation(new DateTime("2023-12-08"));
         $this->assertEquals("08/12/2023", $visite->getDatecreationString());
+    }
+    
+    public function testAddEnvironnement(){
+        $environnement = new Environnement();
+        $environnement->setNom("plage");
+        $visite = new Visite();
+        $visite->addEnvironnement($environnement);
+        $nbEnvironementAvant = $visite->getEnvironnements()->count();
+        $visite->addEnvironnement($environnement);
+        $nbEnvironementApres = $visite->getEnvironnements()->count();
+        $this->assertEquals($nbEnvironementAvant, $nbEnvironementApres, "ajout même environnement devrait echouer"); 
     }
 }
