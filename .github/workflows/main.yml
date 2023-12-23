@@ -1,0 +1,16 @@
+on: push
+name: Deploy website on push
+jobs:
+  web-deploy
+  name: Deploy
+  runs-on: unbuntu-latest
+  steps:
+  - name: Get latest code
+    uses: actions/checkout@v2
+  - name: Sync files
+    uses: SamKirland/FTP-Deploy-Action@4.3.0
+    with: 
+    server : ftp.mesformationssio.com
+    server-dir: //home/u536486208/domains/mesformationssio.com/public_html/
+    username: u536486208.doryan74
+    password: ${{ secrets.ftp_password }}
