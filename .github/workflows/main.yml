@@ -2,9 +2,9 @@ on: push
 name: Deploy website on push
 jobs:
   web-deploy
-  name: Deploy
-  runs-on: unbuntu-latest
-  steps:
+name: Deploy
+runs-on: unbuntu-latest
+steps:
   - name: Get latest code
     uses: actions/checkout@v2
   - name: Sync files
