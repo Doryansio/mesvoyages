@@ -2,6 +2,11 @@
 
 {% block title %}{% endblock %}
 {% block stylesheets %} {% endblock %}
+<div class="container text-end">
+            {% if app.user %}
+                <a href="{{ path('logout') }}"> Se déconnecter</a>
+            {% endif %}
+        </div>
 {%  block top %}
     <div class='container'>
         <!--title-->
